@@ -1,11 +1,12 @@
-import { Button } from "@/components/ui/button";
+
+import VideoHero from "./VideoHero";
 
 export default function Home() {
   return (
     <div>
-      <Button>
-        Hello world! 123
-      </Button>
+
+      <VideoHero />
+
     </div>
   );
 }

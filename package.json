@@ -9,8 +9,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postinstall": "pnpm dlx prisma generate",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "docker:dev": "docker-compose up app-dev",
+    "docker:build:dev": "docker-compose build --no-cache app-dev",
+    "docker:prod": "docker-compose up app-prod",
+    "docker:build:prod": "docker-compose build --no-cache app-prod"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.4.3",

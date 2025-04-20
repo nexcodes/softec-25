@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <Button>
-        Hello world!
+        Hello world! 123
       </Button>
     </div>
   );

@@ -1,11 +1,13 @@
-import { Button } from "@/components/ui/button";
+'use client';
+
+import { useCurrentUser } from "@/hooks/use-current-user";
 
 export default function Home() {
+  const { user } = useCurrentUser();
+
   return (
     <div>
-      <Button>
-        Hello world! 123
-      </Button>
+      <>{JSON.stringify(user)}</>
     </div>
   );
 }

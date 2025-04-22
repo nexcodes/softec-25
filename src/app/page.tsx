@@ -1,13 +1,15 @@
-import Head from "next/head";
-
 import VideoHero from "@/components/VideoHero";
-import RevealSection from "@/components/RevealSection";
+
+
+
+import FeatureCards from "@/components/FeatureCards";
+
 
 export default function Home() {
   return (
-    <div>
+    <>
       <VideoHero />
-      <RevealSection />
-    </div>
+      <FeatureCards />
+    </>
   );
 }

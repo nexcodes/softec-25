@@ -3,16 +3,26 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Monda } from "next/font/google"; // Add this import
 import "./globals.css";
 import { Provider } from "@/components/providers";
+import { Urbanist } from "next/font/google"; // Urbanist font import
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-urbanist",
+});
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+
+
 
 // Add Monda font configuration
 const monda = Monda({
@@ -34,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${monda.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${monda.variable} ${urbanist.variable} antialiased`}
       >
         <Provider>{children}</Provider>
       </body>

@@ -124,12 +124,69 @@ app.post("/lawyers", async (c) => {
   }
 });
 
+app.put("/lawyers/:id", async (c) => {
+  const id = c.req.param("id");
+
+  try {
+    const data = await c.req.json();
+
+    const existing = await db.lawyer.findUnique({ where: { id } });
+    if (!existing) {
+      return c.json({ message: "Lawyer not found." }, 406);
+    }
+
+    const updatedLawyer = await db.lawyer.update({
+      where: { id },
+      data: {
+        ...data,
+        updatedAt: new Date(),
+      },
+    });
+
+    return c.json({
+      message: "Lawyer updated successfully.",
+      data: updatedLawyer,
+      status: 200,
+    });
+  } catch (error) {
+    return c.json({
+      message: "Failed to update lawyer.",
+      error: error instanceof Error ? error.message : "Unknown error",
+    }, 500);
+  }
+});
+
+app.delete("/lawyers/:id", async (c) => {
+  const id = c.req.param("id");
+
+  try {
+    const existing = await db.lawyer.findUnique({ where: { id } });
+
+    if (!existing) {
+      return c.json({ message: "Lawyer not found." }, 406);
+    }
+
+    await db.lawyer.delete({ where: { id } });
+
+    return c.json({
+      message: "Lawyer deleted successfully.",
+      status: 200,
+    });
+  } catch (error) {
+    return c.json({
+      message: "Failed to delete lawyer.",
+      error: error instanceof Error ? error.message : "Unknown error",
+    }, 500);
+  }
+});
+
 
 
 
 
 export const GET = handle(app);
 export const POST = handle(app);
+export const PUT = handle(app);
 export const PATCH = handle(app);
 export const DELETE = handle(app);
 

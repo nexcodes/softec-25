@@ -18,6 +18,8 @@
     "docker:build:prod": "docker-compose build --no-cache app-prod"
   },
   "dependencies": {
+    "@edgestore/react": "^0.3.3",
+    "@edgestore/server": "^0.3.3",
     "@fontsource/urbanist": "^5.2.5",
     "@hono/zod-validator": "^0.4.3",
     "@hookform/resolvers": "^5.0.1",
@@ -59,7 +61,9 @@
     "hono": "^4.7.7",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.488.0",
+    "motion": "^12.7.4",
     "next": "15.3.0",
+    "next-cloudinary": "^6.16.0",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-day-picker": "8.10.1",

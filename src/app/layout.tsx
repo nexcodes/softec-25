@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EdgeStoreProvider } from '../lib/edgestore';
 import { Geist, Geist_Mono } from "next/font/google";
 import { Monda } from "next/font/google"; // Add this import
 import "./globals.css";
@@ -46,7 +47,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${monda.variable} ${urbanist.variable} antialiased`}
       >
-        <Provider>{children}</Provider>
+        <EdgeStoreProvider>{children}</EdgeStoreProvider>
       </body>
     </html>
   );

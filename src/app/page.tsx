@@ -1,15 +1,16 @@
 import VideoHero from "@/components/VideoHero";
-
-
-
 import FeatureCards from "@/components/FeatureCards";
+
+import LogoCarousel from "@/components/LogoCarousel";
 
 
 export default function Home() {
   return (
     <>
+    
       <VideoHero />
       <FeatureCards />
+      <LogoCarousel />
     </>
   );
 }

@@ -1,164 +1,219 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FaLock, FaMapMarkerAlt, FaComments, FaGavel, FaUser, FaChartLine } from "react-icons/fa";
 
 const features = [
   {
     title: "Anonymous Reporting",
-    icon: <FaLock size={24} />,
+    icon: <FaLock size={28} />,
     description: "Report incidents without revealing your identity, promoting safety and trust.",
     background: "/image2.jpg",
     color: "from-blue-500/80"
   },
   {
     title: "Geo Crime Mapping",
-    icon: <FaMapMarkerAlt size={24} />,
+    icon: <FaMapMarkerAlt size={28} />,
     description: "Visualize reported issues on an interactive map to identify high-risk zones.",
     background: "/image3.jpg",
     color: "from-green-400/80"
   },
   {
     title: "Live Community Chat",
-    icon: <FaComments size={24} />,
+    icon: <FaComments size={28} />,
     description: "Stay updated and connected with your community through real-time discussions.",
     background: "/image4.jpg",
     color: "from-purple-400/80"
   },
   {
     title: "Book a Lawyer",
-    icon: <FaGavel size={24} />,
+    icon: <FaGavel size={28} />,
     description: "Easily book verified lawyers for immediate legal support in your area.",
     background: "/image5.jpg",
     color: "from-red-400/80"
   },
   {
-    title: "Available Communities",
-    icon: <FaUser size={24} />,
+    title: "Available Communites",
+    icon: <FaUser size={28} />,
     description: "Explore active communities in your area and connect with those making a difference.",
     background: "/image7.jpg",
     color: "from-yellow-400/80"
   },
   {
     title: "Crime Analytics",
-    icon: <FaChartLine size={24} />,
+    icon: <FaChartLine size={28} />,
     description: "Uncover crime trends with powerful data analytics and numerical insights.",
     background: "/image6.jpg",
     color: "from-blue-900/80"
-  }
+  },
 ];
 
 const FeatureCards = () => {
   return (
-    <section className="bg-black py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-white mb-16 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Empowering Communities Through Technology
-        </motion.h2>
+    <section className="bg-black py-20 px-6 relative">
+   
+    <div className="absolute top-50 left-0 w-50 h-50 bg-blue-400 rounded-full blur-[100px]"></div>
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center opacity-100 transition-opacity duration-700 ease-in-out">
+        Empowering Communities Through Technology
+        
+        </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <motion.div
+            <div
               key={index}
-              className="relative h-72 rounded-xl overflow-hidden shadow-xl"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5, 
-                delay: index * 0.15,
-                ease: [0.25, 0.1, 0.25, 1]
+              className="relative h-96 rounded-xl overflow-hidden shadow-xl opacity-0 translate-y-6 group hover:-translate-y-2 transition-all duration-500 ease-out"
+              style={{
+                animationName: 'fadeInUp',
+                animationDuration: '0.7s',
+                animationDelay: `${index * 0.2}s`,
+                animationFillMode: 'forwards',
+                animationTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
               }}
-              whileHover={{ y: -6, transition: { duration: 0.3 } }}
-              viewport={{ once: true }}
             >
-              <motion.div
-                className="absolute inset-0 z-0"
+              {/* Background Image */}
+              <div
+                className="absolute inset-0 z-0 scale-105 group-hover:scale-110 transition-transform duration-1000 ease-out"
                 style={{
                   backgroundImage: `url(${feature.background})`,
                   backgroundSize: "cover",
-                  backgroundPosition: "center"
+                  backgroundPosition: "center",
                 }}
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, transition: { duration: 2 } }}
               />
 
-              <motion.div
-                className={`absolute inset-0 bg-gradient-to-t ${feature.color} to-black/90 opacity-80`}
-                initial={{ opacity: 0.5 }}
-                whileInView={{ opacity: 0.8 }}
-                whileHover={{ opacity: 0.7 }}
-                transition={{ duration: 0.4 }}
+              {/* Gradient Overlay with unique color per card */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-t ${feature.color} to-black/90 opacity-80 group-hover:opacity-75 transition-opacity duration-500`}
               />
 
-              <motion.div
-                className="absolute top-4 right-4 text-white z-10"
-                initial={{ scale: 0, rotate: -15 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                whileHover={{ scale: 1.15, rotate: 3 }}
-                transition={{ delay: index * 0.15 + 0.2, duration: 0.4 }}
+              {/* Icon with Animation */}
+              <div
+                className="absolute top-6 right-6 text-white z-10 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
+                style={{
+                  animationName: 'iconIn',
+                  animationDuration: '0.5s',
+                  animationDelay: `${index * 0.2 + 0.3}s`,
+                  animationFillMode: 'forwards',
+                  transform: 'scale(0) rotate(-20deg)'
+                }}
               >
                 {feature.icon}
-              </motion.div>
+              </div>
 
-              <motion.div 
-                className="absolute inset-0 flex flex-col justify-end p-6 z-10"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: index * 0.15 + 0.4, duration: 0.5 }}
+              {/* Content */}
+              <div 
+                className="absolute inset-0 flex flex-col justify-end p-8 z-10"
+                style={{
+                  animationName: 'contentIn',
+                  animationDuration: '0.7s',
+                  animationDelay: `${index * 0.2 + 0.5}s`,
+                  animationFillMode: 'forwards',
+                  opacity: 0,
+                  transform: 'translateY(20px)'
+                }}
               >
+                {/* Title with animated underline */}
                 <div className="relative">
-                  <motion.h3 
-                    className="text-lg font-semibold text-white mb-2"
-                    initial={{ x: -15 }}
-                    whileInView={{ x: 0 }}
-                    transition={{ delay: index * 0.15 + 0.6, duration: 0.4 }}
+                  <h3 
+                    className="text-2xl font-semibold text-white mb-3"
+                    style={{
+                      animationName: 'slideInRight',
+                      animationDuration: '0.5s',
+                      animationDelay: `${index * 0.2 + 0.7}s`,
+                      animationFillMode: 'forwards',
+                      transform: 'translateX(-20px)'
+                    }}
                   >
                     {feature.title}
-                  </motion.h3>
-                  <motion.div 
+                  </h3>
+                  <div 
                     className="h-1 bg-white w-0"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "25%" }}
-                    transition={{ delay: index * 0.15 + 0.7, duration: 0.5 }}
+                    style={{
+                      animationName: 'expandWidth',
+                      animationDuration: '0.6s',
+                      animationDelay: `${index * 0.2 + 0.9}s`,
+                      animationFillMode: 'forwards'
+                    }}
                   />
                 </div>
 
-                <motion.p 
-                  className="text-gray-100 mt-2 text-sm leading-relaxed"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.9 }}
-                  transition={{ delay: index * 0.15 + 0.9, duration: 0.6 }}
+                {/* Description with word animation */}
+                <p 
+                  className="text-gray-100 mt-4 font-light leading-relaxed opacity-0"
+                  style={{
+                    animationName: 'fadeIn',
+                    animationDuration: '0.8s',
+                    animationDelay: `${index * 0.2 + 1.1}s`,
+                    animationFillMode: 'forwards'
+                  }}
                 >
                   {feature.description}
-                </motion.p>
+                </p>
 
-                <motion.div
-                  className="mt-4"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: index * 0.15 + 1.1, duration: 0.5 }}
+                {/* Learn More Button */}
+                <div
+                  className="mt-6 opacity-0"
+                  style={{
+                    animationName: 'fadeIn',
+                    animationDuration: '0.6s',
+                    animationDelay: `${index * 0.2 + 1.3}s`,
+                    animationFillMode: 'forwards'
+                  }}
                 >
-                  <motion.button
-                    className="text-white text-xs border-b border-white/50 pb-1 hover:border-white transition-all"
-                    whileHover={{ x: 4 }}
+                  <button
+                    className="text-white text-sm border-b border-white/50 pb-1 hover:border-white transition-all hover:translate-x-1"
                   >
                     Learn more
-                  </motion.button>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+                  </button>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(60px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes iconIn {
+          to {
+            transform: scale(1) rotate(0deg);
+          }
+        }
+        
+        @keyframes contentIn {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes slideInRight {
+          to {
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes expandWidth {
+          to {
+            width: 30%;
+          }
+        }
+        
+        @keyframes fadeIn {
+          to {
+            opacity: 0.9;
+          }
+        }
+      `}</style>
     </section>
   );
 };

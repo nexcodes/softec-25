@@ -22,7 +22,8 @@ const LogoCarousel = () => {
   const carouselRef = useRef(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-[#0f0f0f] to-[#1e1e1e] overflow-hidden">
+    <section className="py-20 bg-black overflow-hidden">
+       
       <div className="max-w-7xl mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-white mb-16 text-center"
@@ -36,6 +37,8 @@ const LogoCarousel = () => {
 
         {/* Top Scroll Row */}
         <div className="relative mb-12" ref={carouselRef}>
+        
+       
           <motion.div
             className="flex gap-2 items-center"
             animate={{ x: ["0%", "-100%"] }}
@@ -65,20 +68,25 @@ const LogoCarousel = () => {
         </div>
 
         {/* Bottom Scroll Row (Reverse Direction) */}
+        
         <div className="relative">
+          
           <motion.div
             className="flex gap-2 items-center"
+            
             animate={{ x: ["-100%", "0%"] }}
             transition={{
               duration: 50,
               repeat: Infinity,
               ease: "linear",
             }}
+            
           >
             {allLogos.reverse().map((logo, index) => (
               <motion.div
                 key={`bottom-${logo.id}-${index}`}
                 className="flex-shrink-0 h-32 w-48 rounded-xl  flex items-center justify-center p-4"
+                
                 whileHover={{
                   y: -6,
                   scale: 1.05,
@@ -90,12 +98,15 @@ const LogoCarousel = () => {
                   className="max-h-full max-w-full object-contain"
                 />
               </motion.div>
+              
             ))}
           </motion.div>
         </div>
+        
 
         <motion.p
           className="text-gray-400 text-center mt-16 text-base max-w-2xl mx-auto"
+          
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -103,7 +114,10 @@ const LogoCarousel = () => {
         >
           Building a safer Pakistan with the help of leading institutions and legal support communities.
         </motion.p>
+        
+        
       </div>
+     
     </section>
   );
 };

@@ -45,7 +45,7 @@ const VideoHero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] w-full overflow-hidden bg-black">
+    <section className="relative min-h-[90vh] w-full overflow-hidden bg-black pt-22">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-25"
@@ -55,35 +55,8 @@ const VideoHero: React.FC = () => {
       ></div>
 
       {/* Header */}
-      <header className="bg-transparent text-white p-4 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/logo.png"
-                alt="Nigheban.pk Logo"
-                width={40}
-                height={40}
-                className="mr-2"
-              />
-              <span className="text-2xl font-bold">Nigheban.pk</span>
-            </Link>
-          </div>
-          <nav>
-            <ul className="flex space-x-10">
-              <li><Link href="/" className="hover:text-blue-300 transition-colors">Home</Link></li>
-              <li><Link href="/report" className="hover:text-blue-300 transition-colors">Report</Link></li>
-              <li><Link href="/report" className="hover:text-blue-300 transition-colors">Consultency</Link></li>
-              <li><Link href="/about" className="hover:text-blue-300 transition-colors">About</Link></li>
-              <li><Link href="/contact" className="hover:text-blue-300 transition-colors">Contact</Link></li>
-              <li><Link href="/report" className="hover:text-blue-300 transition-colors">Explore</Link></li>
-              <button className="bg-blue-600 text-white px-2 py-0.5 rounded hover:bg-blue-800 transition-colors border-black">
-                <Link href="/login" className="hover:text-gray-200 transition-colors">Log in</Link>
-              </button>
-            </ul>
-          </nav>
-        </div>
-      </header>
+
+
 
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">

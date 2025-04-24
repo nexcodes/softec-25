@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { EdgeStoreProvider } from '../lib/edgestore';
 import { Geist, Geist_Mono } from "next/font/google";
-import { Monda } from "next/font/google"; // Add this import
+import { Monda } from "next/font/google";
 import "./globals.css";
 import { Provider } from "@/components/providers";
-import { Urbanist } from "next/font/google"; // Urbanist font import
+import { Urbanist } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,10 +23,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
-
-// Add Monda font configuration
 const monda = Monda({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -47,7 +44,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${monda.variable} ${urbanist.variable} antialiased`}
       >
-        <Provider>{children}</Provider>
+        <Provider>
+          <div className="flex flex-col min-h-screen">
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </Provider>
       </body>
     </html>
   );
